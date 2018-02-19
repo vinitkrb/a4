@@ -1,0 +1,83 @@
+<nav>
+  <li><a data-toggle="tab" routerLink="/tables">Table</a></li>
+  <li class="active"><a data-toggle="tab" routerLink="/empTable">EmpTable</a></li>
+  <li><a data-toggle="tab" routerLink="/binding">Login</a></li>
+  <li><a data-toggle="tab" routerLink="/showerror">Form</a></li>
+  <li><a data-toggle="tab" routerLink="/dashboard">Dashboard</a></li>
+</nav>
+<!-- Button trigger modal -->
+<br/>
+<button type="button" style="float: right" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Add Employee
+</button>
+<!-- Employee list from json -->
+<h3 class="page-header">Employee List</h3><br/>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Business Unit</th>
+      <th>Actions</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{employee.id}}</td>
+        <td>{{employee.name | uppercase}}</td>
+        <td>{{employee.BU | uppercase}}</td>
+        <td><button class="editbtn" (click)="edit()"><i class="fa fa-edit" aria-hidden="true"></i></button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Modal Data after adding -->
+<div *ngIf="payLoad.id">
+	<h3 class="page-header">Recently Added Employee</h3>
+	<div class="table-responsive">
+	  <table class="table">
+	    <thead>
+	      <th>Id</th>
+	      <th>Name</th>
+	      <th>Business Unit</th>
+	    </thead>
+	    <tbody>
+	      <tr>
+	        <td>{{payLoad.id}}</td>
+	        <td>{{payLoad.name | uppercase}}</td>
+	        <td>{{payLoad.BU | uppercase}}</td>
+	      </tr>
+	    </tbody>
+	  </table>
+	</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add Employee</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-control-label">Id:</label>
+          <input type="number" name="id" class="form-control" placeholder="enter id" [(ngModel)]="id">
+        </div>
+        <div class="form-group">
+          <label class="form-control-label">Name:</label>
+          <input type="text" name="name" class="form-control" placeholder="enter name" [(ngModel)]="name">
+        </div>
+        <div class="form-group">
+          <label class="form-control-label">BU:</label>
+          <input type="text" name="bu" class="form-control" placeholder="enter businessUnit" [(ngModel)]="BU">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="add(id,name,BU)">Add</button>
+      </div>
+    </div>
+</div>

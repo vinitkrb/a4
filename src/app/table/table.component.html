@@ -1,0 +1,44 @@
+<nav>
+  <li class="active"><a data-toggle="tab" routerLink="/tables">Table</a></li>
+  <li><a data-toggle="tab" routerLink="/empTable">EmpTable</a></li>
+  <li><a data-toggle="tab" routerLink="/binding">Login</a></li>
+  <li><a data-toggle="tab" routerLink="/showerror">Form</a></li>
+  <li><a data-toggle="tab" routerLink="/dashboard">Dashboard</a></li>
+  <li><a data-toggle="tab" routerLink="/child">Child</a></li>
+  <li><a data-toggle="tab" routerLink="/parent">Parent</a></li>
+</nav>
+<div>
+  Show
+  <select [(ngModel)]="quantity">
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="15">15</option>
+  </select> Enteries
+</div>
+<br/>
+<h3 class="page-header">Data Table With Full Features</h3>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <th>Rendring Engine</th>
+      <th>Browser</th>
+      <th>Platform</th>
+      <th>Engine Version</th>
+      <th>Css Grade</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let table of tables | paginate: { itemsPerPage: quantity, currentPage: p }">
+        <td>{{table.renderingEngine}}</td>
+        <td>{{table.browser}}</td>
+        <td>{{table.platform}}</td>
+        <td>{{table.engineVersion}}</td>
+        <td>{{table.cssGrade}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br/>
+<br/>
+<div style="float: right;" class="pagination">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

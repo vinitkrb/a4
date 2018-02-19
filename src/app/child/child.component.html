@@ -1,0 +1,12 @@
+<nav>
+  <li><a data-toggle="tab" routerLink="/tables">Table</a></li>
+  <li><a data-toggle="tab" routerLink="/empTable">EmpTable</a></li>
+  <li><a data-toggle="tab" routerLink="/binding">Login</a></li>
+  <li><a data-toggle="tab" routerLink="/showerror">Form</a></li>
+  <li><a data-toggle="tab" routerLink="/dashboard">Dashboard</a></li>
+  <li class="active"><a data-toggle="tab" routerLink="/child">Child</a></li>
+  <li><a data-toggle="tab" routerLink="/parent">Parent</a></li>
+</nav>
+<h3>Child</h3>{{sub(2,4)}}
+{{inc(4)}}
+<p><strong>Name:</strong> {{ element.name }}, <strong>id:</strong> {{ element.id }}</p>

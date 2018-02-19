@@ -1,0 +1,14 @@
+<div class="container bg">
+  <h1 class="text-center login-title" style="color: #6891A2;padding-top: 20px">Login to Your Account</h1>
+  <div class="card card-container">
+    <img id="profile-img" class="profile-img-card" src="/assets/user-icon.png" />
+    <p id="profile-name" class="profile-name-card"></p>
+    <form class="form-signin">
+      <span id="reauth-email" class="reauth-email"></span>
+      <input type="text" [ngModelOptions]="{standalone: true}" id="inputEmail" class="form-control" placeholder="Username" [(ngModel)]="userName" required autofocus>
+      <input type="password" [ngModelOptions]="{standalone: true}" id="inputPassword" class="form-control" placeholder="Password" [(ngModel)]="password" required>
+      <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" (click)="login()">Sign in</button>
+    </form>
+    <a href="#" class="forgot-password">Forgot the password?</a>
+  </div>
+</div>
